@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:clock/clock.dart';
 
+/// Credits to: @danilofuchs
 class PollingException implements Exception {
   final String cause;
   const PollingException(this.cause);
