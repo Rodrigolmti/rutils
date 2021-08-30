@@ -46,9 +46,7 @@ class RUtilsImagePicker {
     required String url,
   }) async {
     final response = await get(Uri.parse(url));
-    final file = await _writeToFile(response.bodyBytes);
-
-    return _cropImage(file);
+    return _writeToFile(response.bodyBytes);
   }
 
   static Future<File?> chooseImageFromGallery(
@@ -84,17 +82,21 @@ class RUtilsImagePicker {
     }
 
     if (options.showCrop) {
-      return _cropImage(File(pickedFile.path));
+      return _cropImage(options, File(pickedFile.path));
     }
 
     return File(pickedFile.path);
   }
 
-  static Future<File?> _cropImage(File image) async => ImageCropper.cropImage(
+  static Future<File?> _cropImage(
+    RUtilsImagePickerOptions options,
+    File image,
+  ) async =>
+      ImageCropper.cropImage(
         cropStyle: CropStyle.circle,
         sourcePath: image.path,
-        maxWidth: 320,
-        maxHeight: 320,
+        maxWidth: options.maxWidth?.toInt(),
+        maxHeight: options.maxHeight?.toInt(),
       );
 
   static Future<File> _writeToFile(Uint8List data) async {

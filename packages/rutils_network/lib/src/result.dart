@@ -1,6 +1,3 @@
-import 'package:dio/dio.dart';
-import 'package:rutils_network/src/network_failure.dart';
-
 enum Status { success, error }
 
 /// Wrapper class with success and failure status
@@ -48,14 +45,18 @@ class Result<T> {
   }
 }
 
-typedef ResultCallback<T> = Future<T> Function(T);
+typedef ResultSuccessCallback<T> = Future<T> Function(T);
+typedef ResultErrorCallback<T> = Future<T> Function(T);
 
 /// Coverts a future into a [Result]
 /// If you pass mapSuccess you should handle
 /// the data and return the mapped result
 /// This extensions try to run safely the request with catchError
 extension FutureToResult<T> on Future<T> {
-  Future<Result<T>> toResult({ResultCallback<T>? mapSuccess}) async =>
+  Future<Result<T>> toResult({
+    ResultSuccessCallback<T>? mapSuccess,
+    ResultErrorCallback<T>? mapError,
+  }) async =>
       then((data) async {
         if (mapSuccess != null) {
           try {
@@ -67,21 +68,16 @@ extension FutureToResult<T> on Future<T> {
         }
 
         return Result<T>.success(data);
-      }).catchError((error) {
-        try {
-          // ignore: avoid_dynamic_calls
-          if (error?.error is NetworkFailure) {
-            // ignore: avoid_dynamic_calls
-            return Result<T>.error(error?.error?.message);
+      }).catchError((error) async {
+        if (mapError != null) {
+          try {
+            await mapError.call(error);
+            return Result<T>.error(error);
+          } catch (_) {
+            return Result<T>.error();
           }
-
-          if (error is DioError) {
-            return Result<T>.error(error.error);
-          }
-        } catch (_) {
-          return Result<T>.error();
         }
 
-        return Result<T>.error();
+        return Result<T>.error(error);
       });
 }

@@ -8,6 +8,7 @@ class RUtilsTextFormStyle {
   final TextStyle? labelStyle;
   final TextStyle? hintStyle;
   final TextStyle? errorStyle;
+  final TextStyle? prefixStyle;
   final InputBorder? errorBorder;
   final InputBorder? focusedBorder;
   final InputBorder? focusedErrorBorder;
@@ -17,6 +18,7 @@ class RUtilsTextFormStyle {
   final Color? cursorColor;
   const RUtilsTextFormStyle({
     this.textFormStyle,
+    this.prefixStyle,
     this.labelStyle,
     this.hintStyle,
     this.errorStyle,

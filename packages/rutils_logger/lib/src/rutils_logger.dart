@@ -9,6 +9,7 @@ import 'package:rutils_logger/src/rutils_logger_options.dart';
 /// This class uses the native console to log the data,
 /// any log that you may shout in your
 /// application will be logged to the console with the given configurations.
+/// It also applies to the logzIo if you have setup it will receive the data
 class RUtilsLogger {
   RUtilsLogger._();
 

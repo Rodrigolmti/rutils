@@ -7,6 +7,11 @@ class LocationFailure implements Exception {
   const LocationFailure({this.error});
 }
 
+/// Location status enum
+/// [hasPermission] the user has accept the permission
+/// [serviceDisabled] the user has disabled the location service
+/// [denied] the user has denied the permission
+/// [deniedForever] the user has denied the permission forever (Only Android)
 enum RUtilsLocationStatus {
   hasPermission,
   serviceDisabled,
@@ -14,6 +19,8 @@ enum RUtilsLocationStatus {
   deniedForever
 }
 
+/// Determine the current position of the user in case of
+/// [RUtilsLocationStatus.hasPermission]
 Future<RUtilsPosition> determinePosition() async =>
     askForPermission().then((value) async {
       final position = await Geolocator.getCurrentPosition();
@@ -22,6 +29,7 @@ Future<RUtilsPosition> determinePosition() async =>
       throw LocationFailure(error: error);
     });
 
+// Ask for location permission and return the [RUtilsLocationStatus]
 Future<RUtilsLocationStatus> askForPermission() async {
   if (await checkLocationStatus() == RUtilsLocationStatus.hasPermission) {
     return RUtilsLocationStatus.hasPermission;
@@ -43,9 +51,12 @@ Future<RUtilsLocationStatus> askForPermission() async {
   }
 }
 
+/// Check if the location service is enabled is not the same as permission
+/// location service is the location provider of the device
 Future<bool> isLocationServiceEnabled() async =>
     Geolocator.isLocationServiceEnabled();
 
+/// Return the [RUtilsLocationStatus] of the location permission
 Future<RUtilsLocationStatus> checkLocationStatus() async {
   LocationPermission permission;
   bool serviceEnabled;
