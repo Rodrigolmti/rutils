@@ -1,0 +1,12 @@
+name: rutils_currency
+description: RUtils currency package
+version: 0.0.1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  intl: ^0.17.0

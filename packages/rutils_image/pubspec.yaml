@@ -1,0 +1,15 @@
+name: rutils_image
+description: RUtils image package
+version: 0.0.1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  permission_handler: ^8.1.4+2
+  image_picker: ^0.8.3+3
+  image_cropper: ^1.4.1
+  path_provider: ^2.0.2

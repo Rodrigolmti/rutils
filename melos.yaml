@@ -1,0 +1,45 @@
+name: rutils
+
+versioning:
+  mode: independent
+
+packages:
+  - packages/**
+
+scripts:
+  lint:all:
+    run: melos run analyze && melos run format
+    description: Run all static analysis checks
+
+  analyze:
+    run: melos exec -c 6 flutter analyze
+    description: Run analyze for Flutter packages in this project
+
+  test:
+    run: melos run test:selective --no-select
+    description: Run all Flutter tests in this project.
+  test:selective:
+    run: |
+      melos exec -c 6 --fail-fast -- \
+        "flutter test --no-pub --reporter compact --no-test-assets"
+    description: Run `flutter test` for a specific package.
+    select-package:
+      dir-exists:
+        - test
+      ignore:
+        - "*example*"
+
+  install:
+    run: melos exec -c 6 flutter pub get
+    description: Install all dependencies
+  clean:
+    run: melos exec -c 6 -- flutter clean && melos run install
+    description: Clean Flutter packages in this project and run bootstrap
+  format:
+    run: melos exec -c 6 --fail-fast -- flutter format .
+  format:check:
+    run: melos exec -c 6 --fail-fast -- flutter format --set-exit-if-changed --dry-run .
+
+environment:
+  sdk: ">=2.12.0-0 <3.0.0"
+  flutter: ">=1.22.5 <2.0.0"

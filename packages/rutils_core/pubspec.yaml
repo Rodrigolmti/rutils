@@ -1,0 +1,15 @@
+name: rutils_core
+description: RUtils core package
+version: 0.0.1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  url_launcher: ^6.0.9
+  device_info: ^2.0.2
+  easy_mask: ^2.0.0
+  intl: ^0.17.0
