@@ -1,0 +1,65 @@
+name: Pull Request CI
+
+on: [pull_request]
+
+jobs:
+  analyze_packages:
+    name: Flutter Analyze
+    runs-on: ubuntu-latest
+
+    container:
+      image: cirrusci/flutter:stable
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get Flutter Pub cache directory path
+        id: flutter-pub-cache-dir-path
+        run: echo "::set-output name=dir::$HOME/.pub-cache"
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.flutter-pub-cache-dir-path.outputs.dir }}
+          key: flutter-cache-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: flutter-cache-
+
+      - name: Install tools
+        run: ./.github/workflows/scripts/install-tools.sh
+
+      - name: Install dependencies
+        run: melos bootstrap
+
+      - name: Check code formatting
+        run: melos run format:check
+
+      - name: Run analyze
+        run: melos run analyze
+
+  run_tests:
+    name: Flutter Test
+    runs-on: ubuntu-latest
+
+    container:
+      image: cirrusci/flutter:stable
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get Flutter Pub cache directory path
+        id: flutter-pub-cache-dir-path
+        run: echo "::set-output name=dir::$HOME/.pub-cache"
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.flutter-pub-cache-dir-path.outputs.dir }}
+          key: flutter-cache-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: flutter-cache-
+
+      - name: Install tools
+        run: ./.github/workflows/scripts/install-tools.sh
+
+      - name: Install dependencies
+        run: melos bootstrap
+
+      - name: Run tests
+        run: melos run test

@@ -1,3 +1,7 @@
+/// Get the value of a enum as string, example:
+/// TransactionType.Buy -> "Buy"
+String enumToString(Object enumValue) => enumValue.toString().split('.').last;
+
 /// Parse string to a given enum type.
 T enumFromString<T>({
   required Iterable<T> values,
@@ -46,3 +50,17 @@ T? tryToGetArgsOrIgnore<T>(Object? arguments) {
 
   return null;
 }
+
+/// Return the given [value] if it is not null. Otherwise, return the given
+/// [fallback] value.
+String getSafeText({
+  required String fallback,
+  String? value,
+}) =>
+    (value != null && value.isNotEmpty) ? value : fallback;
+
+/// Return true if the given [value] is null. Otherwise, return false.
+bool isNull(Object? value) => value == null;
+
+/// Return true if the given [value] is not null. Otherwise, return false.
+bool isNotNull(Object? value) => value != null;
