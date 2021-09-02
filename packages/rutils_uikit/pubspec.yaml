@@ -1,6 +1,6 @@
 name: rutils_uikit
 description: RUtils uikit package
-version: 0.0.1
+version: 0.0.2
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
