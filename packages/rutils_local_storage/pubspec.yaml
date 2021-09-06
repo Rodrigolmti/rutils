@@ -11,4 +11,5 @@ dependencies:
     sdk: flutter
   shared_preferences: ^2.0.6
 
-flutter:
+dev_dependencies:
+  lints: ^1.0.0

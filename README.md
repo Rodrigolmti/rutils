@@ -8,6 +8,35 @@ problems like:
 - Refresh token for DIO
 - Abstraction for local storage with SharedPreferences
 
+## Conventions
+
+### Commits / PR 
+
+All Pull Request titles and commits must follow the [conventional commit message format](https://conventionalcommits.org/):
+
+- `feat: Add new feature`
+- `chore: Remove unused file`
+- `fix: Fix bug`
+- `refactor: Refactor code`
+- `style: Improve the style`
+- `docs: Update docs`
+
+This is used to automate the versioning of the packages.
+
+## Releasing
+
+Run and accept the versioning
+
+```bash
+melos version --all
+```
+
+Then, push the new version:
+
+```
+git push --follow-tags
+```
+
 ## Packages
 - [rutils_core]
 - [rutils_currency]

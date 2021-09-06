@@ -29,13 +29,13 @@ abstract class _RUtilsLocalStorage {
 ///  it is async so you may need to await the result
 /// You can use the method getInstance() to get the instance of the class
 class RUtilsLocalStorage implements _RUtilsLocalStorage {
-  final SharedPreferences preferences;
+  late SharedPreferences preferences;
 
-  RUtilsLocalStorage({required this.preferences});
+  RUtilsLocalStorage._(this.preferences);
 
   static Future<RUtilsLocalStorage> getInstance() async {
     final sharedPreferences = await SharedPreferences.getInstance();
-    return RUtilsLocalStorage(preferences: sharedPreferences);
+    return RUtilsLocalStorage._(sharedPreferences);
   }
 
   @override

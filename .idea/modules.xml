@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/packages/rutils_core/melos_rutils_core.iml" filepath="$PROJECT_DIR$/packages/rutils_core/melos_rutils_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/rutils_currency/melos_rutils_currency.iml" filepath="$PROJECT_DIR$/packages/rutils_currency/melos_rutils_currency.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/rutils_example/melos_rutils_example.iml" filepath="$PROJECT_DIR$/packages/rutils_example/melos_rutils_example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/rutils_image/melos_rutils_image.iml" filepath="$PROJECT_DIR$/packages/rutils_image/melos_rutils_image.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/rutils_local_storage/melos_rutils_local_storage.iml" filepath="$PROJECT_DIR$/packages/rutils_local_storage/melos_rutils_local_storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/rutils_location/melos_rutils_location.iml" filepath="$PROJECT_DIR$/packages/rutils_location/melos_rutils_location.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/rutils_logger/melos_rutils_logger.iml" filepath="$PROJECT_DIR$/packages/rutils_logger/melos_rutils_logger.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/rutils_network/melos_rutils_network.iml" filepath="$PROJECT_DIR$/packages/rutils_network/melos_rutils_network.iml" />
-      <module fileurl="file://$PROJECT_DIR$/melos_melos.iml" filepath="$PROJECT_DIR$/melos_melos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/rutils_uikit/melos_rutils_uikit.iml" filepath="$PROJECT_DIR$/packages/rutils_uikit/melos_rutils_uikit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/sample_cubit/melos_sample_cubit.iml" filepath="$PROJECT_DIR$/packages/sample_cubit/melos_sample_cubit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melos_rutils.iml" filepath="$PROJECT_DIR$/melos_rutils.iml" />
     </modules>
   </component>
 </project>

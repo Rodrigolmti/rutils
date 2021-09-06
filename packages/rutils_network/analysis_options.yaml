@@ -1,5 +1,0 @@
-include: ../../all_lint_rules.yaml
-
-linter:
-  rules:
-    public_member_api_docs: false
