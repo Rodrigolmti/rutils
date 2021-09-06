@@ -1,0 +1,57 @@
+name: sample_cubit
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  rutils_local_storage:
+    git:
+      url: git@github.com:Rodrigolmti/rutils.git
+      path: packages/rutils_local_storage
+      ref: rutils_local_storage-v0.0.2
+  rutils_network:
+    git:
+      url: git@github.com:Rodrigolmti/rutils.git
+      path: packages/rutils_network
+      ref: rutils_network-v0.0.2
+  rutils_logger:
+    git:
+      url: git@github.com:Rodrigolmti/rutils.git
+      path: packages/rutils_logger
+      ref: rutils_logger-v0.0.2
+  rutils_core:
+    git:
+      url: git@github.com:Rodrigolmti/rutils.git
+      path: packages/rutils_core
+      ref: rutils_core-v0.0.2
+  flutter_bloc: ^7.2.0
+  flutter_svg: ^0.22.0
+  injectable: ^1.5.0
+  get_it: ^7.2.0
+  intl: ^0.17.0
+  dio: ^4.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  injectable_generator: ^1.5.0
+  json_serializable: ^5.0.0
+  lints: ^1.0.0
+  build_runner:
+
+dependency_overrides:
+  meta: ^1.4.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/fonts/
+    - assets/i18n/
