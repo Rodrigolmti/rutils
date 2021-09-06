@@ -1,6 +1,6 @@
 name: rutils_logger
 description: RUtils logger
-version: 0.0.2
+version: 0.0.2+1
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

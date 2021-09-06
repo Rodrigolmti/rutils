@@ -1,6 +1,6 @@
 name: rutils_network
 description: RUtils network package
-version: 0.0.2
+version: 0.0.2+1
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
