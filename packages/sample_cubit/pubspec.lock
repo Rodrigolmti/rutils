@@ -28,7 +28,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.6.1"
+    version: "2.8.1"
   bloc:
     dependency: transitive
     description:
@@ -112,7 +112,7 @@ packages:
       name: charcode
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "1.3.1"
   checked_yaml:
     dependency: transitive
     description:
@@ -516,39 +516,31 @@ packages:
   rutils_core:
     dependency: "direct main"
     description:
-      path: "packages/rutils_core"
-      ref: "rutils_core-v0.0.2"
-      resolved-ref: "5c3697dd6efdc4f180da836c9dd1fccea9171633"
-      url: "git@github.com:Rodrigolmti/rutils.git"
-    source: git
-    version: "0.0.2"
+      path: "../rutils_core"
+      relative: true
+    source: path
+    version: "0.0.2+1"
   rutils_local_storage:
     dependency: "direct main"
     description:
-      path: "packages/rutils_local_storage"
-      ref: "rutils_local_storage-v0.0.2"
-      resolved-ref: "5c3697dd6efdc4f180da836c9dd1fccea9171633"
-      url: "git@github.com:Rodrigolmti/rutils.git"
-    source: git
-    version: "0.0.2"
+      path: "../rutils_local_storage"
+      relative: true
+    source: path
+    version: "0.0.2+1"
   rutils_logger:
     dependency: "direct main"
     description:
-      path: "packages/rutils_logger"
-      ref: "rutils_logger-v0.0.2"
-      resolved-ref: "5c3697dd6efdc4f180da836c9dd1fccea9171633"
-      url: "git@github.com:Rodrigolmti/rutils.git"
-    source: git
-    version: "0.0.2"
+      path: "../rutils_logger"
+      relative: true
+    source: path
+    version: "0.0.2+1"
   rutils_network:
     dependency: "direct main"
     description:
-      path: "packages/rutils_network"
-      ref: "rutils_network-v0.0.2"
-      resolved-ref: "5c3697dd6efdc4f180da836c9dd1fccea9171633"
-      url: "git@github.com:Rodrigolmti/rutils.git"
-    source: git
-    version: "0.0.2"
+      path: "../rutils_network"
+      relative: true
+    source: path
+    version: "0.0.2+1"
   shared_preferences:
     dependency: transitive
     description:
@@ -672,7 +664,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.4.2"
   timing:
     dependency: transitive
     description:
