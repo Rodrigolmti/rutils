@@ -63,7 +63,7 @@ Future<T> poll<T>(
         !shouldStopPolling && period != null && timeToExecuteIteration < period;
 
     if (shouldWait) {
-      final waitFor = period! - timeToExecuteIteration;
+      final waitFor = period - timeToExecuteIteration;
       await Future.delayed(waitFor);
     }
   }

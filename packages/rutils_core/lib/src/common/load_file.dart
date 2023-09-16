@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class LoadFile {
-  static Future<String> _loadFromAsset(String pathFile) async {
+  /**
+   * Loads a file from the assets folder and returns the contents as a string.
+   */
+  static Future<String> loadFromAsset(String pathFile) async {
     try {
       return await rootBundle.loadString(pathFile);
       // ignore: avoid_catching_errors
@@ -15,11 +18,13 @@ class LoadFile {
     }
   }
 
-  /// Given a path to a file, load the file and return the contents as a map.
+  /**
+   * Loads a file from the assets folder and returns the contents as a map.
+   */
   static Future<Map<String, dynamic>?> parseFileContentToMap(
     String pathFile,
   ) async {
-    final jsonString = await _loadFromAsset(pathFile);
+    final jsonString = await loadFromAsset(pathFile);
     final Map valueMap = json.decode(jsonString);
     if (valueMap is Map<String, dynamic>) {
       return valueMap;

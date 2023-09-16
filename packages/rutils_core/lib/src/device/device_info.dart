@@ -8,8 +8,9 @@ const _default_brand = '-';
 const _invalid_id = '-1';
 const _invalidBrand = '-';
 
-/// Returns some information about the device.
-/// This is a wrapper around [DeviceInfoPlugin].
+/**
+ * This class is responsible for returning information about the device.
+ */
 class DeviceInfo {
   final DeviceInfoPlugin _deviceInfo = DeviceInfoPlugin();
 
@@ -18,7 +19,7 @@ class DeviceInfo {
 
   Future<String?> _getDeviceInfo<T>({
     String Function()? isAndroid,
-    String Function()? unknow,
+    String Function()? unknown,
     String Function()? isIos,
   }) async {
     if (Platform.isAndroid) {
@@ -28,26 +29,31 @@ class DeviceInfo {
       _iosDeviceInfo = _iosDeviceInfo ?? await _deviceInfo.iosInfo;
       return isIos?.call();
     } else {
-      return unknow?.call();
+      return unknown?.call();
     }
   }
 
-  /// Returns the device model or - if is not available.
+  /**
+   * Returns the device model, if is not available returns -.
+   */
   Future<String?> getDeviceModel() async => _getDeviceInfo(
       isAndroid: () => _androidDeviceInfo?.model ?? _default_model,
       isIos: () => _iosDeviceInfo?.model ?? _default_model,
-      unknow: () => Platform.operatingSystem);
+      unknown: () => Platform.operatingSystem);
 
-  /// Returns the device brand, for iOS aways Apple or -
-  /// if is not available in Android.
+  /**
+   * Returns the device brand, if is not available returns -.
+   */
   Future<String?> getDeviceBrand() async => _getDeviceInfo(
       isAndroid: () => _androidDeviceInfo?.brand ?? _default_brand,
       isIos: () => 'Apple',
-      unknow: () => _invalidBrand);
+      unknown: () => _invalidBrand);
 
-  /// Returns the device id, if is not available returns -1.
+  /**
+   * Returns the device id, if is not available returns -1.
+   */
   Future<String?> getDeviceId() async => _getDeviceInfo(
       isAndroid: () => _androidDeviceInfo?.id ?? _invalid_id,
       isIos: () => _iosDeviceInfo?.identifierForVendor ?? _invalid_id,
-      unknow: () => _invalid_id);
+      unknown: () => _invalid_id);
 }

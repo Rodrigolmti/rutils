@@ -1,20 +1,29 @@
 const _pattern = r'([0-9])\1+';
 final _regex = RegExp(_pattern);
 
-const _sequence1 = '123456';
-const _sequence2 = '012345';
-const _sequence3 = '654321';
-const _sequence4 = '543210';
+const _sequencePattern = r'([0-9])\1+';
+final _sequenceRegex = RegExp(_sequencePattern);
 
+/**
+ * Validates password
+ */
 class PasswordValidator {
-  static bool validate(String? password) =>
-      password != null && password.length >= 6 && !_regex.hasMatch(password);
+  /**
+   * Validates password when it is not null and greater than 0
+   */
+  static bool validate(String? password, {int length = 6}) =>
+      password != null &&
+      password.length >= length &&
+      !_regex.hasMatch(password);
 
+  /**
+   * Validates password when it is not null and greater than 0
+   */
   static bool match(String? password, String? confirm) => password == confirm;
 
+  /**
+   * Validates password when it is not a sequence
+   */
   static bool isNumberSequence(String? password) =>
-      password == _sequence1 ||
-      password == _sequence2 ||
-      password == _sequence3 ||
-      password == _sequence4;
+      _sequenceRegex.hasMatch(password ?? '');
 }

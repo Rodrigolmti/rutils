@@ -36,7 +36,7 @@ class RUtilsImagePickerOptions {
 /// If you do not provide a max width or height it will be set according
 /// to the image quality or the device supported dimensions
 /// The download method will download the image from the url and store in
-/// the remporary directory with the timestamp as the name
+/// the temporally directory with the timestamp as the name
 class RUtilsImagePicker {
   RUtilsImagePicker._();
 

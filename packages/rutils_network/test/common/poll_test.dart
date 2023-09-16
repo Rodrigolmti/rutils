@@ -16,11 +16,9 @@ class MockClock extends Mock implements Clock {}
 
 void main() {
   late Task task;
-  late Clock clock;
 
   setUp(() {
     task = MockTask();
-    clock = MockClock();
   });
 
   test('polls function', () async {

@@ -7,6 +7,6 @@ class PhoneValidator {
     return value.replaceAll(RegExp('[^0-9]'), '');
   }
 
-  static bool validate(String? phone) =>
-      phone != null && normalize(phone).length == 11;
+  static bool validate(String? phone, {int length = 11}) =>
+      phone != null && normalize(phone).length == length;
 }

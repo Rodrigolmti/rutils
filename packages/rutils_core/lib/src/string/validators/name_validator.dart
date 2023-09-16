@@ -4,7 +4,7 @@ const _pattern =
 final _regex = RegExp(_pattern);
 
 class NameValidator {
-  static bool validateFullname(String? name) => _regex.hasMatch(name ?? '');
+  static bool validateFullName(String? name) => _regex.hasMatch(name ?? '');
 
   static bool validateSocialName(String? name) =>
       name != null && name.length >= 3;

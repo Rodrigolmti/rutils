@@ -2,12 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:rutils_network/src/network_failure.dart';
 
-class _ConnectionHanlder {
-  factory _ConnectionHanlder() => I;
+class _ConnectionHandler {
+  factory _ConnectionHandler() => I;
 
-  static final _ConnectionHanlder I = _ConnectionHanlder._();
+  static final _ConnectionHandler I = _ConnectionHandler._();
 
-  _ConnectionHanlder._();
+  _ConnectionHandler._();
 
   final InternetConnectionChecker connectionChecker =
       InternetConnectionChecker();
@@ -25,20 +25,20 @@ class NetworkException implements Exception {
 Future<T> doRequestOrThrowNetworkException<T>(
   Future<T> Function() callback,
 ) async {
-  if (await _ConnectionHanlder.I.connectionChecker.hasConnection) {
+  if (await _ConnectionHandler.I.connectionChecker.hasConnection) {
     return callback();
   } else {
     throw const NetworkException('User has no internet connection');
   }
 }
 
-/// Call procced function if network is available or call exit if not.
-Future<void> proccedOnConnectionOrExit({
-  required VoidCallback procced,
+/// Call proceed function if network is available or call exit if not.
+Future<void> proceedOnConnectionOrExit({
+  required VoidCallback proceed,
   required VoidCallback exit,
 }) async {
-  if (await _ConnectionHanlder.I.connectionChecker.hasConnection) {
-    procced();
+  if (await _ConnectionHandler.I.connectionChecker.hasConnection) {
+    proceed();
   } else {
     exit();
   }

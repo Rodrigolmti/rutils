@@ -1,8 +1,12 @@
-/// Get the value of a enum as string, example:
-/// TransactionType.Buy -> "Buy"
+/** 
+ * Get the value of a enum as string, example:
+ * TransactionType.Buy -> "Buy"
+*/
 String enumToString(Object enumValue) => enumValue.toString().split('.').last;
 
-/// Parse string to a given enum type.
+/**
+ * Parse string to a given enum type.
+ */
 T enumFromString<T>({
   required Iterable<T> values,
   required String? string,
@@ -13,8 +17,10 @@ T enumFromString<T>({
         : values.firstWhere((type) => type.toString().split('.').last == string,
             orElse: () => defaultValue);
 
-/// Call parse function if the given json is not null and not empty.
-/// Or else, throws [FormatException]
+/**
+ * Call parse function if the given json is not null and not empty.
+ * Or else, throws [FormatException]
+ */
 T doParseJsonOrThrow<T>({
   required Map<String, dynamic>? json,
   required T Function(Map<String, dynamic>) parse,

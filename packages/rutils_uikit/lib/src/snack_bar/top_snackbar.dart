@@ -177,7 +177,7 @@ void showTopSnackBar(
     ),
   );
 
-  overlayState?.insert(overlayEntry);
+  overlayState.insert(overlayEntry);
 }
 
 class TopSnackBar extends StatefulWidget {
