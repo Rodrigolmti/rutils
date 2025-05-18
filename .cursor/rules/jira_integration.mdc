@@ -1,0 +1,65 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# JIRA INTEGRATION RULE
+
+Use this rule to generate standardized JIRA ticket content and comments based on completed tasks and git changes.
+
+## CRITICAL STEPS (ALL MANDATORY)
+
+1. **Analyze Completed Tasks**
+   - Review tasks in /tasks directory with "done" status
+   - Examine implementation details and notes
+   - Identify key requirements that were met
+   - Determine testing approach from test strategy
+
+2. **Examine Git Changes**
+   - Use `git diff` or `git log` to review committed changes
+   - Focus on what was changed, not how
+   - Identify files modified and the nature of changes
+   - Look for patterns in the changes (e.g., new features, bug fixes)
+
+3. **Generate JIRA Ticket Content**
+   - Use the template from `.cursor/rules/task_templates/jira_ticket_template.md`
+   - Title format: "Marketplace App | [Concise description]"
+   - Focus on requirements and implementation details from tasks
+   - Create testing instructions based on what needs to be verified
+   - Ensure content is concise but comprehensive
+
+4. **Generate JIRA Comment**
+   - Use the template from `.cursor/rules/task_templates/jira_comment_template.md`
+   - Summarize implementation details from tasks
+   - List key changes made based on git changes
+   - Document validation performed from task test strategy
+   - Note any limitations or outstanding issues identified
+
+5. **Review and Refine**
+   - Ensure generated content is concise and focuses on what's important
+   - Remove any redundant or unnecessary information
+   - Confirm all sections of templates are properly filled
+   - Verify technical accuracy of the content
+
+## WORKFLOW
+
+1. Assistant completes task and marks as "done" in tasks.json
+2. Assistant commits changes with appropriate commit messages
+3. Developer requests JIRA content generation
+4. LLM analyzes tasks and git changes to generate content
+5. LLM presents generated content for review
+6. Developer reviews and modifies if needed
+7. Developer adds content to JIRA ticket
+
+## EXAMPLE COMMANDS
+
+To analyze git changes:
+```
+git log --name-status -3
+git diff --name-status HEAD~1 HEAD
+```
+
+To identify completed tasks:
+```
+grep -r "# Status: done" tasks/
+```

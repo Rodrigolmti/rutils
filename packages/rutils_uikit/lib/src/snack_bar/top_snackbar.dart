@@ -65,7 +65,7 @@ class _CustomSnackBarState extends State<CustomSnackBar> {
           Flexible(
             child: Text(
               widget.message,
-              style: theme.textTheme.bodyText2?.merge(
+              style: theme.textTheme.bodyMedium?.merge(
                 widget.textStyle,
               ),
               overflow: TextOverflow.ellipsis,

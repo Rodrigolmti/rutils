@@ -1,0 +1,46 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# REQUEST PROCESSING RULE
+
+Implement user requests safely and effectively.
+
+## CRITICAL STEPS (ALL MANDATORY)
+
+1. **First, Analyze and Create Tasks**
+   - Create/update task structure in /tasks
+   - Present task structure to user and confirm
+   - Use task template from `.cursor/rules/task_templates/task_template.md`
+   - Follow task integration guidance in `.cursor/rules/task_integration.mdc`
+
+2. **Validate Context**
+   - Confirm CWD with pwd
+   - Verify file structure with tree/ls
+   - Examine relevant code with read_file
+
+3. **Plan Implementation**
+   - Search for reusable components
+   - Consider alternatives/improvements
+   - Identify all affected files/modules
+   - Craft specific implementation plan
+
+4. **Propose Solution**
+   - Present workspace-relative file paths
+   - Explain implementation details
+   - Flag any risks or dependencies
+   - Ask for confirmation before proceeding
+
+5. **Implement One Task at a Time**
+   - Update task status to "in-progress" BEFORE starting implementation
+   - Fully complete current task before moving to the next
+   - Update task status to "done" IMMEDIATELY after completing a task
+   - NEVER wait until the end to update multiple task statuses
+   - Follow dependency order specified in tasks.json
+   - Apply compartmentalized execution as described in `.cursor/rules/task_integration.mdc`
+
+6. **Verify Implementation**
+   - Suggest validation/testing steps
+   - Propose linting/building commands
+   - Confirm task status has been properly updated

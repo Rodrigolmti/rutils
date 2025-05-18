@@ -55,6 +55,9 @@ class _DateHelper {
     }
   }
 
+  /**
+   * Returns the number of days in the given month and year.
+   */
   static int daysInMonth(int month, int year) {
     final days = 28 +
         (month + (month / 8).floor()) % 2 +
@@ -63,6 +66,9 @@ class _DateHelper {
     return (isLeapYear(year) && month == 2) ? 29 : days;
   }
 
+  /**
+   * Returns true if the given year is a leap year.
+   */
   static bool isLeapYear(int year) =>
       (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
 }

@@ -1,0 +1,47 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# ISSUE DIAGNOSIS & RESOLUTION RULE
+
+Diagnose and fix issues systematically.
+
+## CRITICAL STEPS (ALL MANDATORY)
+
+1. **First, Analyze and Create Tasks**
+   - Create/update task structure in /tasks
+   - Present task structure to user and confirm
+
+2. **Validate Context**
+   - Confirm CWD with pwd
+   - Gather specific error messages/logs
+   - Examine affected code with read_file
+
+3. **Diagnose Root Cause**
+   - Trace execution flow to problem area
+   - Formulate 2-3 specific hypotheses
+   - Validate hypotheses with code evidence
+   - Identify confirmed root cause
+
+4. **Plan Solution**
+   - Search for reusable patterns/solutions
+   - Assess impact scope (local vs. systemic)
+   - Craft minimal fix AND improvement options
+   - Prioritize consistency with existing patterns
+
+5. **Propose Solution**
+   - Present minimal fix with code details
+   - Suggest enhancements if applicable
+   - Flag any risks or side effects
+   - Ask for confirmation before proceeding
+
+6. **Implement One Task at a Time**
+   - Fully complete current task before moving to next
+   - Update task status immediately upon completion
+   - Follow dependency order specified in tasks.json
+
+7. **Verify Fix**
+   - Outline specific test cases
+   - Suggest validation methods
+   - Update task status to "done"

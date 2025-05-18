@@ -242,7 +242,10 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-09-16T14:23:34.336929Z",
+  "generated": "2025-05-18T11:49:42.167805Z",
   "generator": "pub",
-  "generatorVersion": "3.1.0"
+  "generatorVersion": "3.5.2",
+  "flutterRoot": "file:///Users/rodrigo/fvm/versions/3.24.2",
+  "flutterVersion": "3.24.2",
+  "pubCache": "file:///Users/rodrigo/.pub-cache"
 }

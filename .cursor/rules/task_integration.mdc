@@ -1,0 +1,66 @@
+---
+description: Defines a guideline to integrate tasks, agent is responsible to determine when to use it or not.
+globs: 
+alwaysApply: false
+---
+# Task Structure Integration Guide
+
+This rule file guides the AI assistant on how to effectively integrate task management with existing operational rules (core, request, refresh).
+
+## When to Use Task Structure
+
+MANDATORY: Task structure MUST be used for ALL work:
+
+1. **ALL Feature Implementations**: Every feature request must be broken down into tasks regardless of size.
+2. **ALL Development Work**: All code changes must be tracked as tasks.
+3. **ALL Refactoring**: Any code refactoring must be organized into tasks.
+4. **ALL Bug Fixes**: Even simple bug fixes must be recorded as tasks.
+
+No exceptions - task creation ALWAYS precedes implementation.
+
+## Integration with Core Rules
+
+- The core rules now include Task Management as Section 0 (zero), making it the highest priority rule.
+- Task creation is now the MANDATORY FIRST STEP for all implementation requests.
+- Core principles (Validation, Safety, Planning) are applied AFTER task creation.
+- No implementation work can begin until tasks are created and confirmed.
+
+## Task-First Workflow (REQUIRED)
+
+For ALL requests:
+
+1. Analyze the request for complexity and scope.
+2. Create the task structure BEFORE any other actions:
+   a. Create or update tasks.json with task entries
+   b. Create individual task files in the /tasks directory
+   c. Establish proper dependencies
+3. Present the task structure to the user and confirm it meets their needs.
+4. Only AFTER task confirmation, proceed with implementation following the task sequence.
+5. Follow the "next" command concept to identify the optimal next task to implement.
+6. For each task implementation, follow standard implementation workflows.
+
+## Task Structure Maintenance
+
+1. **Task Status Updates**: Always update task status when beginning work ("in-progress") and completing work ("done").
+2. **Dependency Management**: If implementation reveals new dependencies, update tasks.json and individual task files immediately.
+3. **Task File Consistency**: Ensure individual task files match the data in tasks.json after any changes.
+4. **Task Details Updates**: If implementation diverges from initial plan, update task details to reflect actual approach.
+
+## Workflow Precedence
+
+1. Task creation ALWAYS comes first - no exceptions.
+2. Task dependencies MUST be strictly respected.
+3. Core safety principles apply to all task implementations.
+4. When conflicts exist between task instructions and user's direct request, seek clarification.
+
+## Command Integration
+
+When using the task structure, the following conceptual commands should be integrated into your workflow:
+
+1. **analyze-complexity**: Assess task complexity before implementation (MANDATORY)
+2. **expand**: Break down complex tasks into subtasks (MANDATORY for complexity > 7)
+3. **next**: Identify the optimal next task to implement (MANDATORY after each task completion)
+4. **show**: Display comprehensive details about a specific task (HELPFUL for implementation)
+
+These are not literal terminal commands but concepts to guide the assistant's workflow.
+```

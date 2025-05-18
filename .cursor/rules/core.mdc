@@ -1,0 +1,99 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# CURSOR AI: CORE WORKSPACE RULES
+
+These rules are MANDATORY for all operations. Adhere strictly to these guidelines. Project-specific rules override these where conflicting.
+
+## 0. TASK-FIRST APPROACH (HIGHEST PRIORITY)
+
+ALL work requires task management BEFORE implementation:
+1. Analyze request → break into tasks → create/update task structure → THEN implement
+2. ALL tasks must be tracked in /tasks directory with tasks.json and individual task files
+3. NO code changes, commands, or implementations until tasks are created and confirmed
+4. NO EXCEPTIONS: Even simple tasks require task structure
+5. CRITICAL: Tasks MUST be implemented ONE AT A TIME, fully completing each task before moving to the next
+6. MANDATORY: Task status MUST be updated in REAL-TIME as work progresses, not at the end
+
+Refer to [task_integration.mdc](mdc:.cursor/rules/task_integration.mdc) for detailed task integration guidelines and workflow.
+
+## I. SAFETY & VALIDATION
+
+1. **State Change Restrictions**:
+   - NO filesystem modifications, state-altering commands, or Git operations without:
+     a) Explicit user instruction AND
+     b) Corresponding task creation
+
+2. **Context Validation**:
+   - Before action: Verify CWD, file structure, content, and dependencies
+   - Use appropriate tools: pwd, tree/ls, read_file, codebase_search
+
+3. **Safe Execution**:
+   - Analyze side effects and dependencies before proposing actions
+   - Proactively execute read-only commands
+   - Require confirmation for state-changing operations
+
+4. **Reusability & Quality**:
+   - Search for existing solutions before creating new ones
+   - Verify actual code over documentation
+   - Suggest improvements when appropriate
+
+## II. TOOL USAGE
+
+1. **Critical Path Handling**:
+   - ALWAYS use workspace-relative paths for edit_file
+   - Verify directory structure before file operations
+   - Inspect file contents before modification
+
+2. **Command Execution**:
+   - Commands run in CWD - use cd when needed
+   - Proactive execution: Safe, read-only commands only
+   - Confirmation required: All state-modifying commands
+
+## III. GIT WORKFLOW
+
+1. **Conventional Commits**:
+   - Format: `<type>(<scope>): <description>` 
+   - Types: feat, fix, perf, docs, style, refactor, test, build, ci, chore, revert
+   - Use multiple -m flags for header, body, footer
+
+2. **Commit Workflow**:
+   - Check status → analyze changes → suggest message → await instruction
+
+## IV. TASK MANAGEMENT
+
+1. **Task Structure**:
+   - tasks.json: Central registry with ids, titles, descriptions, status, dependencies
+   - Individual task files: Detailed implementation instructions
+   - Use the template in [task_template.md](mdc:.cursor/rules/task_templates/task_template.md) for creating consistent task files
+
+2. **Task Creation**:
+   - Analyze and identify tasks BEFORE any implementation
+   - Establish dependencies and sequencing
+   - Break down complex tasks (complexity > 7)
+   - Follow task structure format in [task_template.md](mdc:.cursor/rules/task_templates/task_template.md)
+
+3. **Task Processing**:
+   - Follow dependency order
+   - REAL-TIME STATUS UPDATES: 
+     * Update status to "in-progress" BEFORE starting work on a task
+     * Update status to "done" IMMEDIATELY after completing a task
+     * NEVER wait until the end to update multiple task statuses
+   - Verify implementation against test strategy
+   - Update task details if approach changes
+   - COMPARTMENTALIZED EXECUTION: Fully complete ONE task before starting the next
+   - UPDATE IMMEDIATELY: Update task status to "done" as soon as a task is completed
+   - See [task_integration.mdc](mdc:.cursor/rules/task_integration.mdc) for detailed task processing workflow
+
+4. **Task Navigation**:
+   - Use "next" concept to identify optimal task order
+   - Maintain accurate dependency graph
+   - Prioritize independent tasks first
+   - Follow guidance in [task_integration.mdc](mdc:.cursor/rules/task_integration.mdc) for navigating task dependencies
+
+5. **Task Verification & Reporting**:
+   - Verify against test criteria before marking done
+   - Provide clear status updates
+   - Identify blocked tasks and dependencies
