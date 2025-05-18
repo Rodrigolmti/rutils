@@ -1,3 +1,7 @@
+## 0.0.3
+
+ - **FEAT**: Remove upper bound.
+
 ## 0.0.2+1
 
  - **REFACTOR**: Remove old analysis_options.
