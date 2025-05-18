@@ -1,0 +1,19 @@
+name: rutils_network
+description: RUtils network package
+version: 0.0.2+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: 3.24.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  internet_connection_checker: ^3.0.1
+  dio: ^5.8.0+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.4
+  lints: ^5.0.0

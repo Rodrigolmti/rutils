@@ -1,0 +1,19 @@
+name: rutils_example
+description: A rutils_example project
+
+publish_to: "none"
+
+version: 0.0.1+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: 3.24.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  rutils_uikit:
+    path: ../uikit
+
+flutter:
+  uses-material-design: true

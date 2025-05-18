@@ -4,6 +4,7 @@
         "Geolocator",
         "mocktail",
         "RRGGBB",
-        "rutils"
+        "rutils",
+        "uikit"
     ]
 }
